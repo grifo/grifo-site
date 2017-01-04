@@ -41,6 +41,10 @@ const config = {
                     ['css-loader', 'postcss-loader', 'sass-loader', 'import-glob-loader']
                 ),
             },
+            {
+                test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+                loader: 'file-loader',
+            },
         ],
     },
 
