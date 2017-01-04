@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import webpack from 'webpack';
 import baseConfig from './base';
 
@@ -18,7 +19,7 @@ const config = {
         inline: true,
         progress: true,
         historyApiFallback: true,
-    }
-}
+    },
+};
 
 export default config;

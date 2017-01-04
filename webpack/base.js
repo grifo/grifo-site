@@ -1,5 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+
+import autoprefixer from 'autoprefixer';
+import postcssMergeRules from 'postcss-merge-rules';
+import postcssDiscardDuplicates from 'postcss-discard-duplicates';
+import postcssDiscardUnused from 'postcss-discard-unused';
 
 const config = {
     entry: [
@@ -10,11 +16,11 @@ const config = {
     output: {
         path: path.resolve(__dirname, '../', 'assets'),
         publicPath: '/assets/',
-        filename: path.join('scripts', 'bundle.js')
+        filename: path.join('scripts', 'bundle.js'),
     },
 
     plugins: [
-        new ExtractTextPlugin(path.join('styles', 'styles.css'))
+        new ExtractTextPlugin(path.join('styles', 'styles.css')),
     ],
 
     module: {
@@ -24,8 +30,8 @@ const config = {
                 exclude: /node_modules/,
                 loader: 'babel',
                 query: {
-                    presets: ['es2015']
-                }
+                    presets: ['es2015'],
+                },
             },
             {
                 test: /\.(sass|scss)$/,
@@ -33,18 +39,17 @@ const config = {
                 loader: ExtractTextPlugin.extract(
                     'style-loader',
                     ['css-loader', 'postcss-loader', 'sass-loader', 'import-glob-loader']
-                )
-
+                ),
             },
         ],
     },
 
     postcss() {
         return [
-            require('autoprefixer'),
-            require('postcss-merge-rules'),
-            require('postcss-discard-duplicates'),
-            require('postcss-discard-unused')()
+            autoprefixer,
+            postcssMergeRules,
+            postcssDiscardDuplicates,
+            postcssDiscardUnused(),
         ];
     },
 };
