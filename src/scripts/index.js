@@ -1,4 +1,5 @@
 import scrollTo from 'scroll-to';
+import _ from 'underscore';
 
 // Navigation
 (() => {
@@ -29,16 +30,19 @@ import scrollTo from 'scroll-to';
         });
     };
 
-    const updateScroll = () => {
-        header.classList.toggle(scrolledClass, scrolled());
-
+    const updateNav = () => {
         positions.forEach((position) => {
             const scrollWithOffset = body.scrollTop + header.offsetHeight;
             if (scrollWithOffset >= position.top && scrollWithOffset < position.bottom) {
                 selectNavItem(position.name);
+                history.pushState(null, null, `#${position.name}`);
             }
             return false;
         });
+    };
+
+    const updateScroll = () => {
+        header.classList.toggle(scrolledClass, scrolled());
     };
 
     const updatePositions = () => {
@@ -50,9 +54,7 @@ import scrollTo from 'scroll-to';
     };
     updatePositions();
 
-    const clickLinkNav = (e) => {
-        const link = e.target;
-        const sectionName = link.getAttribute('href').replace(/.*#/, '');
+    const navigateTo = (sectionName) => {
         const section = document.getElementById(sectionName);
 
         scrollTo(0, section.offsetTop - header.offsetHeight, {
@@ -61,9 +63,25 @@ import scrollTo from 'scroll-to';
         });
     };
 
+    const clickLinkNav = (e) => {
+        const link = e.target;
+        const sectionName = link.getAttribute('href').replace(/.*#/, '');
+        navigateTo(sectionName);
+    };
+
+    const firstLoad = () => {
+        const href = window.location.href;
+
+        if (href.indexOf('#') > -1) {
+            navigateTo(href.replace(/.*#/, ''));
+        }
+    };
+    firstLoad();
+
     toggleMenu.addEventListener('click', updateNavigationMenuStatus);
     window.addEventListener('scroll', updateScroll);
-    window.addEventListener('resize', updatePositions);
+    window.addEventListener('scroll', _.debounce(updateNav, 100));
+    window.addEventListener('resize', _.debounce(updatePositions, 100));
 
     linksNav.forEach((link) => {
         link.addEventListener('click', clickLinkNav);

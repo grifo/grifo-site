@@ -47,6 +47,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
-    "scroll-to": "0.0.2"
+    "scroll-to": "0.0.2",
+    "underscore": "^1.8.3"
   }
 }
