@@ -1,7 +1,9 @@
 .link-menu
     display: inline-block
-    padding: 0 20px
+    padding: 5px 15px
+    white-space: nowrap
     text-decoration: none
+    font-size: 14px
     color: #FFF
     &::before,
     &::after
@@ -10,12 +12,11 @@
         transition: 0.5s width
     &::before
         transition: 1s width
-    &:hover,
-    &.-active
+    &:hover
         &::before,
         &::after
             width: 100%
             background: #FFF
-//    &.-active
-//        border-radius: 20px
-//        border: solid 1px #FFF
+    &.-active
+        border-radius: 20px
+        border: solid 1px #FFF
