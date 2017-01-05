@@ -3,7 +3,6 @@ import _ from 'underscore';
 
 // Navigation
 (() => {
-    const body = document.body;
     const header = document.getElementById('header');
     const navigationMenu = document.getElementById('navigation-menu');
     const toggleMenu = document.getElementById('toggle-menu');
@@ -14,7 +13,9 @@ import _ from 'underscore';
     const activeClass = '-active';
     let positions = [];
 
-    const scrolled = () => body.scrollTop > sectionHome.offsetHeight - header.offsetHeight - 30;
+    const scrollTop = () =>
+        window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    const scrolled = () => scrollTop() > sectionHome.offsetHeight - header.offsetHeight - 30;
 
     const updateNavigationMenuStatus = () => {
         navigationMenu.classList.toggle(activeClass);
@@ -32,7 +33,7 @@ import _ from 'underscore';
 
     const updateNav = () => {
         positions.forEach((position) => {
-            const scrollWithOffset = body.scrollTop + header.offsetHeight;
+            const scrollWithOffset = scrollTop() + header.offsetHeight;
             if (scrollWithOffset >= position.top && scrollWithOffset < position.bottom) {
                 selectNavItem(position.name);
                 history.pushState(null, null, `#${position.name}`);
@@ -76,7 +77,7 @@ import _ from 'underscore';
             navigateTo(href.replace(/.*#/, ''));
         }
     };
-    firstLoad();
+    setTimeout(firstLoad, 200);
 
     toggleMenu.addEventListener('click', updateNavigationMenuStatus);
     window.addEventListener('scroll', updateScroll);
