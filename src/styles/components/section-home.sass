@@ -10,12 +10,14 @@
         height: 100vh
         animation: 1s slide-in-down
     .title
+        padding-bottom: 40px
         font-family: $highlight-font
         font-weight: 400
-        font-size: 60px
-    .subtitle
-        padding-top: 40px
-        font-size: 20px
+        text-transform: uppercase
+        text-shadow: 0 2px 20px #333
+    .logo
+        +IR(80%, 250px, $root-images + 'grifo.svg', 50% 50%)
+        background-size: contain
     > .more
         position: absolute
         bottom: 30px
