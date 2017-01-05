@@ -1,0 +1,15 @@
+@mixin IR($width: auto, $height: auto, $imageURL: '', $backgroundPosition: 0 0)
+    width: $width
+    height: $height
+    background-image: url($imageURL)
+    background-position: $backgroundPosition
+    background-repeat: no-repeat
+    font: 0/0 a
+    text-shadow: none
+    color: transparent
+
+@mixin pseudoElement($width: auto, $height: auto)
+    content: ''
+    display: block
+    width: $width
+    height: $height

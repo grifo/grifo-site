@@ -1,0 +1,21 @@
+.link-menu
+    display: inline-block
+    padding: 0 20px
+    text-decoration: none
+    color: #FFF
+    &::before,
+    &::after
+        +pseudoElement(1px, 1px)
+        margin: 1px auto
+        transition: 0.5s width
+    &::before
+        transition: 1s width
+    &:hover,
+    &.-active
+        &::before,
+        &::after
+            width: 100%
+            background: #FFF
+//    &.-active
+//        border-radius: 20px
+//        border: solid 1px #FFF

@@ -1,0 +1,40 @@
+.navigation-menu
+    display: flex
+    justify-content: flex-end
+    text-align: center
+    text-transform: uppercase
+    font-size: 18px
+
+    @media screen and (max-width: $break-small)
+        position: fixed
+        flex-direction: column
+        justify-content: space-around
+        width: 100vw
+        height: 100vh
+        top: -100vh
+        left: 0
+        background: #FFF
+        transition: 1s top
+        .link
+            color: #FF0000
+
+    &.-active
+        top: 0
+        & + .togglemenu
+            color: #FF0000
+    > .item
+        margin-left: 20px
+
+    & + .togglemenu
+        position: absolute
+        right: $gutter
+        top: 10px
+        background: transparent
+        border: 0
+        padding: 0
+        color: #FFF
+        transition: 0.6s color
+        @media screen and (min-width: $break-small + 1)
+            display: none
+        .material-icons
+            font-size: 40px

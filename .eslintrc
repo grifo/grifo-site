@@ -3,6 +3,10 @@
     "plugins": [
         "import"
     ],
+    "env": {
+        "browser": true,
+        "node": true
+    },
     "rules": {
         "indent": [
             "error",
