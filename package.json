@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "node -r ./node_modules/babel-register ./node_modules/.bin/webpack-dev-server --config ./webpack/dev.js --watch",
     "lint": "./node_modules/.bin/eslint ./src/scripts/*; exit 0",
-    "build": "node -r ./node_modules/babel-register ./node_modules/.bin/webpack --config ./webpack/prod.js --progress --colors"
+    "build": "npm run imagemin && npm run webpack",
+    "webpack": "node -r ./node_modules/babel-register ./node_modules/.bin/webpack --config ./webpack/prod.js --progress --colors",
+    "imagemin": "./node_modules/.bin/imagemin ./assets/images/**/* --out-dir=./assets/images"
   },
   "repository": {
     "type": "git",
@@ -35,6 +37,7 @@
     "eslint-plugin-import": "^2.2.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
+    "imagemin-cli": "^3.0.0",
     "import-glob-loader": "^1.1.0",
     "node-sass": "^4.1.1",
     "postcss-discard-duplicates": "^2.0.2",
