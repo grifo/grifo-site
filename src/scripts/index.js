@@ -8,7 +8,7 @@ import _ from 'underscore';
     const toggleMenu = document.getElementById('toggle-menu');
     const sectionHome = document.getElementById('home');
     const linksNav = document.querySelectorAll('.link-nav');
-    const sectionsNav = document.querySelectorAll('.section-nav');
+    const sectionsNav = document.querySelectorAll('.section-page');
     const scrolledClass = '-scrolled';
     const activeClass = '-active';
     let positions = [];
