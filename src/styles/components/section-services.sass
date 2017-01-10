@@ -3,8 +3,15 @@
     > .title
         +slideDownFrom()
     > .text
-        padding-bottom: $block-spacing
+        max-width: $max-width
+        margin: 0 auto
         +slideDownFrom(0.5s)
+    > .title2
+        +slideDownFrom(1.5s)
+    > .startups
+        max-width: $max-width
+        margin: 0 auto
+        +slideDownFrom(2s)
     > .technologies
         display: flex
         flex-flow: row wrap
@@ -30,4 +37,8 @@
         > .text
             +slideDownTo()
         > .technologies
+            +slideDownTo()
+        > .title2
+            +slideDownTo()
+        > .startups
             +slideDownTo()
