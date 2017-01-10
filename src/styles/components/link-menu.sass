@@ -14,11 +14,13 @@
         transition: 0.6s background-color, 0.6s width
     &::before
         transition: 0.6s background-color, 1s width
-    &:hover:not(.-active)
-        &::before,
-        &::after
-            width: 100%
-            background-color: #FFF
+    &:hover
+        color: #FFF
+        &:not(.-active)
+            &::before,
+            &::after
+                width: 100%
+                background-color: #FFF
     &.-active
         border-radius: 20px
         border-color: #FFF

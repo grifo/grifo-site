@@ -1,14 +1,15 @@
 .section-home
+    padding-top: 0
+    padding-bottom: 0
     color: #FFF
     text-align: center
     > .content
-        position: relative
         display: flex
         flex-direction: column
         justify-content: center
         align-items: center
-        height: 100vh
-        animation: 1s slide-in-down
+        min-height: 100vh
+        +slideDownFrom()
     .title
         padding-bottom: 40px
         font-family: $highlight-font
@@ -32,6 +33,9 @@
         &:hover
             &::after
                 filter: blur(5px)
+    &.-active
+        > .content
+            +slideDownTo()
 
 @keyframes arrow-floating
     from

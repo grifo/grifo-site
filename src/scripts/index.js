@@ -31,17 +31,6 @@ import _ from 'underscore';
         });
     };
 
-    const updateNav = () => {
-        positions.forEach((position) => {
-            const scrollWithOffset = scrollTop() + header.offsetHeight;
-            if (scrollWithOffset >= position.top && scrollWithOffset < position.bottom) {
-                selectNavItem(position.name);
-                history.pushState(null, null, `#${position.name}`);
-            }
-            return false;
-        });
-    };
-
     const updateScroll = () => {
         header.classList.toggle(scrolledClass, scrolled());
     };
@@ -54,6 +43,19 @@ import _ from 'underscore';
         }));
     };
     updatePositions();
+
+    const updateNav = () => {
+        positions.forEach((position) => {
+            const scrollWithOffset = scrollTop() + header.offsetHeight;
+            if (scrollWithOffset >= position.top && scrollWithOffset < position.bottom) {
+                document.getElementById(position.name).classList.add(activeClass);
+                selectNavItem(position.name);
+                history.pushState(null, null, `#${position.name}`);
+            }
+            return false;
+        });
+    };
+    updateNav();
 
     const navigateTo = (sectionName) => {
         const section = document.getElementById(sectionName);

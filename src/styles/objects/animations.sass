@@ -5,3 +5,13 @@
     to
         top: 0
         opacity: 1
+
+@mixin slideDownFrom($delay: 0s)
+    position: relative
+    top: -60px
+    opacity: 0
+    transition: 1s $delay top, 1s $delay opacity
+
+@mixin slideDownTo()
+    top: 0
+    opacity: 1

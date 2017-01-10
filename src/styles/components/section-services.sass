@@ -1,0 +1,33 @@
+.section-services
+    background: url($root-images + 'bg-white.png')
+    > .title
+        +slideDownFrom()
+    > .text
+        padding-bottom: $block-spacing
+        +slideDownFrom(0.5s)
+    > .technologies
+        display: flex
+        flex-flow: row wrap
+        justify-content: center
+        width: 90%
+        max-width: $max-width
+        margin: 0 auto
+        padding-bottom: $block-spacing
+        line-height: 150%
+        font-size: 50px
+        +slideDownFrom(1s)
+        .icon
+            width: 100px
+            color: #999
+            text-decoration: none
+            &:hover
+                color: $highlight-text-color
+            &::after
+                display: none
+    &.-active
+        > .title
+            +slideDownTo()
+        > .text
+            +slideDownTo()
+        > .technologies
+            +slideDownTo()
