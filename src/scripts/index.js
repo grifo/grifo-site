@@ -17,12 +17,26 @@ import _ from 'underscore';
         window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     const scrolled = () => scrollTop() > sectionHome.offsetHeight - header.offsetHeight - 30;
 
-    const updateNavigationMenuStatus = () => {
-        navigationMenu.classList.toggle(activeClass);
+    const toggleClass = (el, className, force = undefined) => {
+        if (force === true) {
+            return el.classList.add(className);
+        } else if (force === false) {
+            return el.classList.remove(className);
+        }
+
+        if (el.classList.contains(className)) {
+            el.classList.remove(className);
+        } else {
+            el.classList.add(className);
+        }
+    };
+
+    const updateNavigationMenuStatus = (force = undefined) => {
+        toggleClass(navigationMenu, activeClass, force);
     };
 
     const selectNavItem = (positionName) => {
-        linksNav.forEach((link) => {
+        [].forEach.call(linksNav, link => {
             if (link.getAttribute('href').replace(/.*#/, '') === positionName) {
                 link.classList.add(activeClass);
             } else {
@@ -32,7 +46,7 @@ import _ from 'underscore';
     };
 
     const updateScroll = () => {
-        header.classList.toggle(scrolledClass, scrolled());
+        toggleClass(header, scrolledClass, scrolled());
     };
 
     const updatePositions = () => {
@@ -59,6 +73,7 @@ import _ from 'underscore';
 
     const navigateTo = (sectionName) => {
         const section = document.getElementById(sectionName);
+        updateNavigationMenuStatus(false);
 
         scrollTo(0, section.offsetTop - header.offsetHeight, {
             ease: 'outQuad',
@@ -86,7 +101,7 @@ import _ from 'underscore';
     window.addEventListener('scroll', _.debounce(updateNav, 100));
     window.addEventListener('resize', _.debounce(updatePositions, 100));
 
-    linksNav.forEach((link) => {
+    [].forEach.call(linksNav, link => {
         link.addEventListener('click', clickLinkNav);
     });
 })();
