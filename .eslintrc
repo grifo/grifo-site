@@ -15,6 +15,13 @@
         "comma-dangle": [
             "warn",
             "always-multiline"
+        ],
+        "no-unused-vars": [
+            "warn"
+        ],
+        "no-plusplus": [
+            "warn",
+            { "allowForLoopAfterthoughts": true }
         ]
     }
 }
