@@ -25,10 +25,9 @@ import _ from 'underscore';
         }
 
         if (el.classList.contains(className)) {
-            el.classList.remove(className);
-        } else {
-            el.classList.add(className);
+            return el.classList.remove(className);
         }
+        return el.classList.add(className);
     };
 
     const updateNavigationMenuStatus = (force = undefined) => {
@@ -36,7 +35,7 @@ import _ from 'underscore';
     };
 
     const selectNavItem = (positionName) => {
-        [].forEach.call(linksNav, link => {
+        [].forEach.call(linksNav, (link) => {
             if (link.getAttribute('href').replace(/.*#/, '') === positionName) {
                 link.classList.add(activeClass);
             } else {
@@ -59,8 +58,9 @@ import _ from 'underscore';
     updatePositions();
 
     const updateNav = () => {
+        const top = scrollTop();
         positions.forEach((position) => {
-            const scrollWithOffset = scrollTop() + header.offsetHeight;
+            const scrollWithOffset = top + header.offsetHeight;
             if (scrollWithOffset >= position.top && scrollWithOffset < position.bottom) {
                 document.getElementById(position.name).classList.add(activeClass);
                 selectNavItem(position.name);
@@ -101,7 +101,7 @@ import _ from 'underscore';
     window.addEventListener('scroll', _.debounce(updateNav, 100));
     window.addEventListener('resize', _.debounce(updatePositions, 100));
 
-    [].forEach.call(linksNav, link => {
+    [].forEach.call(linksNav, (link) => {
         link.addEventListener('click', clickLinkNav);
     });
 })();

@@ -1,6 +1,8 @@
 .list-products
     display: flex
     justify-content: space-between
+    max-width: $max-width
+    margin: 0 auto
     > .item
         width: 45%
     .videocontainer
@@ -15,3 +17,11 @@
         left: 0
         width: 100%
         height: 100%
+    .eventer,
+    .moviegames
+        background-size: contain
+        margin-bottom: $text-spacing
+    .eventer
+        +IR(auto, 30px, $root-images + 'eventer.png', 50% 0)
+    .moviegames
+        +IR(auto, 30px, $root-images + 'moviegames.png', 50% 0)
