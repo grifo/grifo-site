@@ -9,6 +9,9 @@
         justify-content: center
         align-items: center
         min-height: 100vh
+    .logo
+        +IR(80%, 250px, $root-images + 'grifo.svg', 50% 50%)
+        background-size: contain
         +slideDownFrom()
     .title
         padding-bottom: 40px
@@ -16,9 +19,7 @@
         font-weight: 400
         text-transform: uppercase
         text-shadow: 0 2px 20px #333
-    .logo
-        +IR(80%, 250px, $root-images + 'grifo.svg', 50% 50%)
-        background-size: contain
+        +slideDownFrom(0.5s)
     > .more
         position: absolute
         bottom: 30px
@@ -34,7 +35,9 @@
             &::after
                 filter: blur(5px)
     &.-active
-        > .content
+        .title
+            +slideDownTo()
+        .logo
             +slideDownTo()
 
 @keyframes arrow-floating
