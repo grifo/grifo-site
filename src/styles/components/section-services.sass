@@ -1,17 +1,22 @@
 .section-services
-    background-image: url($root-images + 'bg-white.png')
+    display: flex
+    flex-direction: column
+    justify-content: center
+    background-image: url($root-images + 'bg-services.jpg')
     > .title
         +slideDownFrom()
     > .text
         max-width: $max-width
         margin: 0 auto
         +slideDownFrom(0.5s)
+    > .list-icons
+        +slideDownFrom(1s)
     > .title2
-        +slideDownFrom(1.5s)
+        +slideDownFrom(2s)
     > .startups
         max-width: $max-width
         margin: 0 auto
-        +slideDownFrom(2s)
+        +slideDownFrom(2.5s)
     > .technologies
         display: flex
         flex-flow: row wrap
@@ -22,19 +27,18 @@
         padding-bottom: $block-spacing
         line-height: 150%
         font-size: 50px
-        +slideDownFrom(1s)
+        +slideDownFrom(1.5s)
         .icon
             width: 100px
-            color: #999
             text-decoration: none
-            &:hover
-                color: $highlight-text-color
             &::after
                 display: none
     &.-active
         > .title
             +slideDownTo()
         > .text
+            +slideDownTo()
+        > .list-icons
             +slideDownTo()
         > .technologies
             +slideDownTo()

@@ -4,18 +4,29 @@
     justify-content: center
     background-image: url($root-images + 'bg-contact.jpg')
     color: #FFF
+    > .title
+        +slideDownFrom()
     > .content
         display: flex
         justify-content: center
-        text-align: left
+        text-align: right
+        +slideDownFrom(0.5s)
+    .info
+        display: flex
+        justify-content: flex-end
+    .icon
+        margin-left: 10px
     .map
         opacity: 0.9
         transition: 0.6s opacity
-        margin-right: 15px
+        margin-left: 15px
         &::after
             display: none
         &:hover
             opacity: 1
-    .bgtext
-        background: #FFF
-        color: $default-text-color
+
+    &.-active
+        > .title
+            +slideDownTo()
+        > .content
+            +slideDownTo()

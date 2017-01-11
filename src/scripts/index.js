@@ -15,7 +15,7 @@ import _ from 'underscore';
 
     const scrollTop = () =>
         window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    const scrolled = () => scrollTop() > sectionHome.offsetHeight - header.offsetHeight - 30;
+    const scrolled = () => scrollTop() > sectionHome.offsetHeight - header.offsetHeight - 80;
 
     const toggleClass = (el, className, force = undefined) => {
         if (force === true) {
