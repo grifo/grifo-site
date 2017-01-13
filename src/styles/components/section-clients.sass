@@ -1,2 +1,19 @@
 .section-clients
-    background-image: url($root-images + 'bg-white.png')
+    display: flex
+    flex-direction: column
+    justify-content: center
+    background: #222328
+    .clients
+        max-width: $max-width
+        margin: 0 auto
+    .item
+        display: inline-block
+        padding: 30px
+        vertical-align: middle
+    .clientlink
+        opacity: 0.5
+        transition: 0.6s opacity
+        &::after
+            display: none
+        &:hover
+            opacity: 1
