@@ -1,0 +1,13 @@
+.list-services
+    display: flex
+    justify-content: center
+    > .item
+        max-width: 290px
+        padding: 0 20px
+        &::before
+            +pseudoElement(auto, 200px)
+            background: url($root-images + 'screens.png') no-repeat
+        &.-web::before
+            background-position:  50% 0
+        &.-mobile::before
+            background-position:  50% -250px

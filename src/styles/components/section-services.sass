@@ -1,22 +1,15 @@
 .section-services
-    display: flex
-    flex-direction: column
-    justify-content: center
-    background-image: url($root-images + 'bg-services.jpg')
     > .title
         +slideDownFrom()
     > .text
         max-width: $max-width
         margin: 0 auto
+        padding-bottom: $block-spacing - $text-spacing
         +slideDownFrom(0.5s)
-    > .list-icons
+    > .list-services
         +slideDownFrom(1s)
-    > .title2
+    > .highlight-block
         +slideDownFrom(2s)
-    > .startups
-        max-width: $max-width
-        margin: 0 auto
-        +slideDownFrom(2.5s)
     > .technologies
         display: flex
         flex-flow: row wrap
@@ -24,7 +17,6 @@
         width: 90%
         max-width: $max-width
         margin: 0 auto
-        padding-bottom: $block-spacing
         line-height: 150%
         font-size: 50px
         +slideDownFrom(1.5s)
@@ -38,11 +30,9 @@
             +slideDownTo()
         > .text
             +slideDownTo()
-        > .list-icons
+        > .list-services
             +slideDownTo()
         > .technologies
             +slideDownTo()
-        > .title2
-            +slideDownTo()
-        > .startups
+        > .highlight-block
             +slideDownTo()

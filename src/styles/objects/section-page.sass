@@ -6,21 +6,32 @@
     background-position: 50% 50%
     background-repeat: no-repeat
     > .title,
-    > .title2,
-    .title3
+    .subtitle
         font-family: $highlight-font
         text-transform: uppercase
 
-    > .title,
-    > .title2
-        text-shadow: 1px 1px 1px #000
-        padding-bottom: $text-spacing
-
     > .title
-        font-size: 42px
-
-    > .title2
+        padding-bottom: $text-spacing
         font-size: 24px
+        font-weight: 400
+        &::after
+            +pseudoElement(90px, 1px)
+            margin: 15px auto 0
+            background: #CCC
+            background: linear-gradient(to right, rgba(204,204,204,0) 0%, rgba(204,204,204,1) 50%, rgba(204,204,204,0) 100%)
+            animation: shine-title 4s infinite
 
-    .title3
+    .subtitle
+        font-size: 18px
         padding-bottom: 15px
+
+    &.-white
+        color: #FFF
+
+@keyframes shine-title
+    0%
+        background-position: 0 0
+    20%
+        background-position: 90px 0
+    100%
+        background-position: 90px 0
