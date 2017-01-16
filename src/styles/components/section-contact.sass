@@ -13,6 +13,7 @@
     .info
         display: flex
         justify-content: flex-end
+        padding-bottom: 15px
     .icon
         margin-left: 10px
     .map
@@ -29,3 +30,13 @@
             +slideDownTo()
         > .content
             +slideDownTo()
+
+@media screen and (max-width: $break-small)
+    .section-contact
+        > .content
+            flex-direction: column
+            text-align: center
+        .info
+            justify-content: center
+        .icon
+            display: none
