@@ -1,2 +1,15 @@
 .section-partner
+    display: flex
+    flex-direction: column
+    justify-content: center
     background-image: url($root-images + 'bg-partner.jpg')
+    > .title
+        +slideDownFrom()
+    > .content
+        +slideDownFrom(0.5s)
+
+    &.-active
+        > .title
+            +slideDownTo()
+        > .content
+            +slideDownTo()
