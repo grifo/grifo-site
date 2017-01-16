@@ -3,9 +3,14 @@
     flex-direction: column
     justify-content: center
     background: #222
+    > .title
+        +slideDownFrom()
+    > .text
+        +slideDownFrom(0.5s)
     .clients
         max-width: $max-width
         margin: 0 auto
+        +slideDownFrom(1s)
     .item
         display: inline-block
         padding: 30px
@@ -17,3 +22,11 @@
             display: none
         &:hover
             opacity: 1
+
+    &.-active
+        > .title
+            +slideDownTo()
+        > .text
+            +slideDownTo()
+        .clients
+            +slideDownTo()
