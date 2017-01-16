@@ -60,7 +60,8 @@ import _ from 'underscore';
     const updateNav = () => {
         const top = scrollTop();
         positions.forEach((position) => {
-            const scrollWithOffset = top + header.offsetHeight;
+            const scrollWithOffset = top + header.offsetHeight + (window.innerHeight / 3);
+
             if (scrollWithOffset >= position.top && scrollWithOffset < position.bottom) {
                 document.getElementById(position.name).classList.add(activeClass);
                 selectNavItem(position.name);
