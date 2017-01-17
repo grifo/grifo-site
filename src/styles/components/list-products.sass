@@ -25,3 +25,10 @@
         +IR(auto, 30px, $root-images + 'eventer.png', 50% 0)
     .moviegames
         +IR(auto, 30px, $root-images + 'moviegames.png', 50% 0)
+
+@media screen and (max-width: 730px)
+    .list-products
+        flex-direction: column
+        > .item
+            width: auto
+            margin-bottom: $block-spacing

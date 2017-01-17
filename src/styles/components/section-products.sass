@@ -1,2 +1,18 @@
 .section-products
-    //background-image: url($root-images + 'bg-products.jpg')
+    background-image: url($root-images + 'bg-products.jpg')
+    > .title
+        +slideDownFrom()
+    > .text
+        padding-bottom: $text-spacing
+        +slideDownFrom(0.5s)
+    > .list-products
+        +slideDownFrom(1s)
+
+    &.-active
+        > .title
+            +slideDownTo()
+        > .text
+            padding-bottom: $text-spacing
+            +slideDownTo()
+        > .list-products
+            +slideDownTo()
