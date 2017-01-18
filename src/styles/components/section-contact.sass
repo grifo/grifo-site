@@ -25,11 +25,12 @@
         &:hover
             opacity: 1
 
-    &.-active
-        > .title
-            +slideDownTo()
-        > .content
-            +slideDownTo()
+.section-contact.-active,
+body.touch .section-contact
+    > .title
+        +slideDownTo()
+    > .content
+        +slideDownTo()
 
 @media screen and (max-width: $break-small)
     .section-contact

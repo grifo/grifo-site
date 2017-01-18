@@ -8,11 +8,12 @@
     > .list-products
         +slideDownFrom(1s)
 
-    &.-active
-        > .title
-            +slideDownTo()
-        > .text
-            padding-bottom: $text-spacing
-            +slideDownTo()
-        > .list-products
-            +slideDownTo()
+.section-products.-active,
+body.touch .section-products
+    > .title
+        +slideDownTo()
+    > .text
+        padding-bottom: $text-spacing
+        +slideDownTo()
+    > .list-products
+        +slideDownTo()

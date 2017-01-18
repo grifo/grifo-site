@@ -37,11 +37,13 @@
         &:hover
             &::after
                 filter: blur(5px)
-    &.-active
-        .title
-            +slideDownTo()
-        .logo
-            +slideDownTo()
+
+.section-home.-active,
+body.touch .section-home
+    .title
+        +slideDownTo()
+    .logo
+        +slideDownTo()
 
 @keyframes arrow-floating
     from

@@ -25,14 +25,16 @@
             text-decoration: none
             &::after
                 display: none
-    &.-active
-        > .title
-            +slideDownTo()
-        > .text
-            +slideDownTo()
-        > .list-services
-            +slideDownTo()
-        > .technologies
-            +slideDownTo()
-        > .highlight-block
-            +slideDownTo()
+
+.section-services.-active,
+body.touch .section-services
+    > .title
+        +slideDownTo()
+    > .text
+        +slideDownTo()
+    > .list-services
+        +slideDownTo()
+    > .technologies
+        +slideDownTo()
+    > .highlight-block
+        +slideDownTo()

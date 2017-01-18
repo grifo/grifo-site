@@ -12,8 +12,9 @@
     .action
         padding-top: 30px
 
-    &.-active
-        > .title
-            +slideDownTo()
-        > .content
-            +slideDownTo()
+.section-partner.-active,
+body.touch .section-partner
+    > .title
+        +slideDownTo()
+    > .content
+        +slideDownTo()
